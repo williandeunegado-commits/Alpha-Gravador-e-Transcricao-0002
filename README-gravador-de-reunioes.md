@@ -15,6 +15,12 @@ perguntas rápidas (nome do módulo, qual stack você usa, se quer identificar
 quem falou o quê) e então escrever o código necessário diretamente no seu
 projeto.
 
+Cada item de ação (combinado) vem com um código curto de identificação, um
+seletor de responsável, um campo de prazo e um campo de observação livre
+para anotar contexto extra. Depois que os itens são revisados e confirmados,
+a tela ainda mostra um card perguntando se você já quer deixar a próxima
+reunião 1:1 agendada.
+
 ## O que é uma skill? O que é o GitHub?
 
 Uma **skill** é um arquivo de texto (`SKILL.md`) com instruções que o Claude
