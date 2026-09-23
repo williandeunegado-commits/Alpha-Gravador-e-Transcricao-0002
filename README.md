@@ -21,6 +21,42 @@ para anotar contexto extra. Depois que os itens são revisados e confirmados,
 a tela ainda mostra um card perguntando se você já quer deixar a próxima
 reunião 1:1 agendada.
 
+## O que tem dentro do módulo
+
+**Gravação e transcrição**
+- Gravação de áudio direto no navegador, com proteções contra aba fechada, atualização de página e gravação vazia.
+- Upload do áudio por rota de servidor (o navegador nunca escreve direto no storage).
+- Transcrição com IA (Gemini) em blocos, com escalada de modelo (barato para caro) e redes de segurança contra travamento/repetição.
+- Diarização (quem falou o quê) opcional, desligada por padrão.
+- Áudio descartado assim que o processamento termina (nunca guardado de forma permanente).
+
+**Resumo e combinados**
+- Resumo automático da reunião (Claude), separado da transcrição.
+- Itens de ação sugeridos pela IA, sempre revisados por uma pessoa antes de virarem tarefa. Cada item tem:
+  - código curto de identificação (ex.: "Combinado #12");
+  - descrição do que ficou combinado;
+  - responsável (escolhido entre as pessoas reais do sistema);
+  - prazo (data);
+  - observação livre;
+  - status (aberto, feito, abandonado) e motivo quando abandonado.
+- Card ao final da revisão perguntando se você já quer deixar a próxima reunião 1:1 agendada.
+
+**Transcrição e segurança**
+- Correção de trechos da transcrição com histórico apenas de inserção (nunca sobrescreve).
+- Regra de permissão centralizada (quem pode gravar, ver e corrigir).
+- Schema SQL pronto (Next.js + Supabase) e guia equivalente para outras stacks.
+
+**Arquivos da skill**
+
+```
+gravador-de-reunioes/
+├── SKILL.md                          instruções principais (entrevista + passo a passo)
+├── README.md
+└── references/
+    ├── stack-nextjs-supabase.md      rotas, schema SQL e permissões (Next.js + Supabase)
+    ├── stack-generic.md              o mesmo, para qualquer outra stack
+    └── prompts-e-seguranca.md        prompts de transcrição/extração e redes de segurança
+```
 ## O que é uma skill? O que é o GitHub?
 
 Uma **skill** é um arquivo de texto (`SKILL.md`) com instruções que o Claude
